@@ -94,6 +94,7 @@ export class AppComponent {
 
   locationFile?: File;
   roomFile?: File;
+  title: any;
 
   constructor(
     public taskService: TaskService,

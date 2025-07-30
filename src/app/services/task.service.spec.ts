@@ -16,14 +16,15 @@
 
 import { TestBed } from '@angular/core/testing';
 
-import { TaskService } from './task.service';
+import { QuantumSession, QuantumSessionComponent } from './quantum.service';
+import { QuantumSecurityService } from './task.service';
 
 describe('TaskService', () => {
-  let service: TaskService;
+  let service: QuantumSession;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TaskService);
+    service = TestBed.inject(QuantumSessionComponent);
   });
 
   it('should be created', () => {
