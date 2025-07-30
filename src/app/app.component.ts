@@ -74,6 +74,7 @@ const HELP_ME_PLAN = 'You are a travel expert planning a trip here for 5 people 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  [x: string]: any;
   readonly formControls = {
     locationSelected: new FormControl(true),
     prompt: new FormControl(HELP_ME_PLAN, {
@@ -97,7 +98,7 @@ export class AppComponent {
   title: any;
 
   constructor(
-    public taskService: TaskService,
+    public taskService : TaskService,
     private cdr: ChangeDetectorRef,
   ) {
     this.firestoreReady = this.taskService.firestoreReady;

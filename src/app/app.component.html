@@ -48,27 +48,15 @@
           <div>
             <!-- Checkbox Images Section -->
             <div class="w-full flex gap-12 mb-4 p-4 justify-center mx-auto">
-              <app-checkboximage
-                #location
-                [src]="'/assets/location.png'"
-                [checked]="formControls.locationSelected.value === true"
-                (onCheckedChanged)="onSelectLocation($event)"
-              ></app-checkboximage>
-              <app-checkboximage
-                #room
-                [src]="'/assets/room.png'"
-                [checked]="formControls.locationSelected.value === false"
-                (onCheckedChanged)="onSelectRoom($event)"
-              ></app-checkboximage>
+              
             </div>
 
             <!-- Prompt Input Section -->
             <form>
               <div class="w-full flex flex-col justify-between gap-4 mb-4 p-4 lg:flex-row xl:flex-row">
                 <mat-form-field class="w-full mb-8" appearance="outline">
-                  <mat-label>Add a prompt</mat-label>
+                  <label>Add a prompt</label>
                   <textarea
-                    [formControl]="formControls.prompt"
                     matInput
                     [placeholder]="getCurrentPromptPlaceHolder()"
                     rows="3"
@@ -111,16 +99,7 @@
 
           <!-- Generated Task Section -->
           <div class="flex-grow pb-4">
-            @if (isLoading()) {
-            <mat-spinner></mat-spinner>
-            } @else if (generatedTask) {
-            <app-task
-              [task]="generatedTask"
-              [canDelete]="false"
-              [showGeneratedWithGemini]="true"
-            ></app-task>
-            }
-          </div>
+            @if (generatedTask) {}
         </div>
 
         <!-- Buttons Section -->
@@ -128,7 +107,7 @@
           <div class="flex flex-row gap-4 w-full justify-end">
             <button
               mat-button
-              [disabled]="!generatedTask || !(firestoreReady | async)"
+              [disabled]="!generatedTask || !(firestoreReady)"
               class="w-36 text-md with-bg"
               (click)="onSave()"
             >
@@ -158,12 +137,6 @@
           class="flex-grow w-full grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-6 bg-[#fff] rounded-[40px] p-4"
         >
           @for (task of this.tasks; track task.maintask.id) {
-          <app-task
-            [task]="task"
-            class="h-auto"
-            (onDelete)="deleteCurrentMainAndSubTasks($event)"
-            (onTasksCompletedToggle)="onTasksCompleted($event)"
-          ></app-task>
           }
         </div>
 

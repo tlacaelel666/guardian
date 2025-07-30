@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-checkboximage',
   standalone: true,
-  imports: [MatCheckbox, MatIconModule, MatCardModule],
+  imports: [MatIconModule, MatCardModule],
   templateUrl: './checkboximage.component.html',
   styleUrl: './checkboximage.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

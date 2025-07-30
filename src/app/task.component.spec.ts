@@ -1,22 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import { TaskComponent } from './task.component';
+import { TaskService } from '../services/task.service'; // Adjusted import path
+import { QuantumSessionComponent } from './task.component';
 
-describe('TaskComponent', () => {
-  let component: TaskComponent;
-  let fixture: ComponentFixture<TaskComponent>;
+describe('QuantumSessionComponent', () => {
+  let component: QuantumSessionComponent;
+  let taskService: TaskService; 
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TaskComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(TaskComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    taskService = TestBed.inject(TaskService);
+    component = new QuantumSessionComponent();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

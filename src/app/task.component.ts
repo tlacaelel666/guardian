@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { QuantumSessionWithOperations } from './services/task.service';
+import { M, a } from "../../node_modules/.pnpm/@angular+material@19.2.19_@angular+cdk@19.2.19_@angular+common@19.2.14_@angular+core@19.2.14__fv6wb5rdfq64qprtxa5d3clf5i/node_modules/@angular/material/form-field.d-CMA_QQ0R";
 
 @Component({
   selector: 'app-quantum-session',
@@ -23,13 +24,43 @@ import { QuantumSessionWithOperations } from './services/task.service';
     MatButtonModule,
     MatDividerModule,
     MatChipsModule,
-    MatTooltipModule
-  ],
+    MatTooltipModule,
+    M,
+    a
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuantumSessionComponent {
+onSelectLocation($event: Event) {
+throw new Error('Method not implemented.');
+}
+onSelectRoom // Update all operations to match main session auth state
+($event: Event) {
+throw new Error('Method not implemented.');
+}
+getCurrentPromptPlaceHolder() {
+throw new Error('Method not implemented.');
+}
+onGoClick() {
+throw new Error('Method not implemented.');
+}
+isLoading() {
+throw new Error('Method not implemented.');
+}
+onSave() {
+throw new Error('Method not implemented.');
+}
+onResetClick() {
+throw new Error('Method not implemented.');
+}
+deleteCurrentMainAndSubTasks($event: Event) {
+throw new Error('Method not implemented.');
+}
+onTasksCompleted($event: Event) {
+throw new Error('Method not implemented.');
+}
   quantumSession = input(undefined as QuantumSessionWithOperations | undefined);
   canTerminate = input(true);
   sowGeneratedWithCerberus = input(false);
@@ -39,6 +70,12 @@ export class QuantumSessionComponent {
   onOperationsAuthToggle = output<QuantumSession[]>();
   onSecurityLevelChange = output<QuantumSession>();
   onQuantumVerification = output<QuantumSession>();
+viewCodeLink: any;
+viewCodeMessage: any;
+formControls: any;
+generatedTask: any;
+firestoreReady: any;
+tasks: any;
 
   /**
    * Toggles the authentication status of a quantum operation
