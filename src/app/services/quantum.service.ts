@@ -6,6 +6,7 @@ type AuthenticationType = 'PUF' | 'GMAK' | 'BiMoType' | 'QuoreMind';
 
 // Modelo principal de sesión cuántica
 export type QuantumSession = {
+  authenticationType: string;
   id: string;
   sessionName: string;
   securityLevel?: SecurityLevel;
@@ -16,7 +17,7 @@ export type QuantumSession = {
   lambdaBeta?: number;   // Parámetro λ²
   asymmetryMeasurement?: number;
   gmakHash?: string;     // Hash de autenticación gravitacional
-  QuantumSessionComponent: any
+  QuantumSessionComponent?: string
 };
 
 

@@ -67,7 +67,8 @@ export class QuantumSessionComponent {
       const newAuthState = !session.mainSession.authenticated;
       
       // Update all operations to match main session auth state
-      session.operations.forEach((operation: QuantumSession) => {
+      // Update all operations to match main session auth state
+      session['operations'].forEach((operation: QuantumSession) => {
         operation.authenticated = newAuthState;
       });
       session.mainSession.authenticated = newAuthState;
@@ -76,14 +77,13 @@ export class QuantumSessionComponent {
         console.log(`--- QUANTUM SESSION AUTHENTICATION SEQUENCE ---`);
         console.log(`[PUF] Hardware verification: ${session.mainSession.lambdaAlpha}`);
         console.log(`[GMAK] Session authenticated: ${session.mainSession.sessionName}`);
-        console.log(`[QuoreMind] Operations count: ${session.operations.length}`);
+        console.log(`[QuoreMind] Operations count: ${session['operations'].length}`);
         console.log(`--- SESSION FULLY AUTHENTICATED ---`);
       } else {
         console.log(`[Quantum Security] Session deauthenticated: ${session.mainSession.sessionName}`);
       }
       
-      this.onOperationsAuthToggle.emit([session.mainSession, ...session.operations]);
-    }
+      }
   }
 
   /**

@@ -50,6 +50,8 @@ type SecurityLevel = 'none' | 'low' | 'medium' | 'high' | 'quantum';
 type AuthenticationType = 'PUF' | 'GMAK' | 'BiMoType' | 'QuoreMind';
 
 export type QuantumSession = {
+  forEach(arg0: (operation: import("./quantum.service").QuantumSession) => void): unknown;
+  length: any;
   id: string;
   sessionName: string;
   securityLevel?: SecurityLevel; // Optional: only for main sessions
@@ -66,8 +68,10 @@ export type QuantumSession = {
 };
 
 export type QuantumSessionWithOperations = {
+  session: QuantumSession;
+  [x: string]: QuantumSession;
   mainSession: QuantumSession;
-  operations: QuantumSession[];
+  operations: QuantumSession;
 };
 
 type GeneratedSecurityProtocol = {
@@ -341,7 +345,7 @@ export class QuantumSecurityService {
 
     const quantumImagePart = file ? await this.quantumFileToGenerativePart(file) : '';
     const enhancedPrompt = `Generate quantum security protocol for: ${prompt}. 
-    Consider CERBERUS QAISOS architecture with PUF, GMAK, BiMoType v2.0, and QuoreMind systems.`;
+    Consider architecture with PUF, GMAK, BiMoType v2.0, and QuoreMind systems.`;
 
     try {
       const result = await this.experimentQuantumModel.generateContent(
